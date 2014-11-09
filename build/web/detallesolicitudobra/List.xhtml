@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDetallesolicitudobraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDetallesolicitudobraEmpty}" rendered="#{detallesolicitudobraController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{detallesolicitudobraController.items.rowCount > 0}">
+                    <h:outputText value="#{detallesolicitudobraController.pagination.pageFirstItem + 1}..#{detallesolicitudobraController.pagination.pageLastItem + 1}/#{detallesolicitudobraController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{detallesolicitudobraController.previous}" value="#{bundle.Previous} #{detallesolicitudobraController.pagination.pageSize}" rendered="#{detallesolicitudobraController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{detallesolicitudobraController.next}" value="#{bundle.Next} #{detallesolicitudobraController.pagination.pageSize}" rendered="#{detallesolicitudobraController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{detallesolicitudobraController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_detallesolicitudobraPK_item}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detallesolicitudobraPK.item}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_cantidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_unidadmedida}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.unidadmedida}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_obrasolicitada}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.obrasolicitada}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_especifictecnicas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.especifictecnicas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_codigounspsc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigounspsc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallesolicitudobraTitle_solicitudobra}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.solicitudobra}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{detallesolicitudobraController.prepareView}" value="#{bundle.ListDetallesolicitudobraViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallesolicitudobraController.prepareEdit}" value="#{bundle.ListDetallesolicitudobraEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallesolicitudobraController.destroy}" value="#{bundle.ListDetallesolicitudobraDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{detallesolicitudobraController.prepareCreate}" value="#{bundle.ListDetallesolicitudobraCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDetallesolicitudobraIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

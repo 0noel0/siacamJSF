@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSolicitudobraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_solicitudobraPK_fecha}" for="solicitudobraPK_fecha" />
+                    <h:inputText id="solicitudobraPK_fecha" value="#{solicitudobraController.selected.solicitudobraPK.fecha}" title="#{bundle.CreateSolicitudobraTitle_solicitudobraPK_fecha}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_solicitudobraPK_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_solicitudobraPK_nombresolicitante}" for="solicitudobraPK_nombresolicitante" />
+                    <h:inputText id="solicitudobraPK_nombresolicitante" value="#{solicitudobraController.selected.solicitudobraPK.nombresolicitante}" title="#{bundle.CreateSolicitudobraTitle_solicitudobraPK_nombresolicitante}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_solicitudobraPK_nombresolicitante}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_cargosolicitante}" for="cargosolicitante" />
+                    <h:inputText id="cargosolicitante" value="#{solicitudobraController.selected.cargosolicitante}" title="#{bundle.CreateSolicitudobraTitle_cargosolicitante}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargosolicitante}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_dependenciasolicitante}" for="dependenciasolicitante" />
+                    <h:inputText id="dependenciasolicitante" value="#{solicitudobraController.selected.dependenciasolicitante}" title="#{bundle.CreateSolicitudobraTitle_dependenciasolicitante}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciasolicitante}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_nombreautorizante}" for="nombreautorizante" />
+                    <h:inputText id="nombreautorizante" value="#{solicitudobraController.selected.nombreautorizante}" title="#{bundle.CreateSolicitudobraTitle_nombreautorizante}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombreautorizante}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_cargoautorizante}" for="cargoautorizante" />
+                    <h:inputText id="cargoautorizante" value="#{solicitudobraController.selected.cargoautorizante}" title="#{bundle.CreateSolicitudobraTitle_cargoautorizante}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargoautorizante}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_dependenciaautorizante}" for="dependenciaautorizante" />
+                    <h:inputText id="dependenciaautorizante" value="#{solicitudobraController.selected.dependenciaautorizante}" title="#{bundle.CreateSolicitudobraTitle_dependenciaautorizante}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciaautorizante}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_justificacion}" for="justificacion" />
+                    <h:inputText id="justificacion" value="#{solicitudobraController.selected.justificacion}" title="#{bundle.CreateSolicitudobraTitle_justificacion}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_justificacion}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_valorestimado}" for="valorestimado" />
+                    <h:inputText id="valorestimado" value="#{solicitudobraController.selected.valorestimado}" title="#{bundle.CreateSolicitudobraTitle_valorestimado}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_valorestimado}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_formaentrega}" for="formaentrega" />
+                    <h:inputText id="formaentrega" value="#{solicitudobraController.selected.formaentrega}" title="#{bundle.CreateSolicitudobraTitle_formaentrega}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_formaentrega}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_lugarentrega}" for="lugarentrega" />
+                    <h:inputText id="lugarentrega" value="#{solicitudobraController.selected.lugarentrega}" title="#{bundle.CreateSolicitudobraTitle_lugarentrega}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_lugarentrega}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_otrascondiciones}" for="otrascondiciones" />
+                    <h:inputText id="otrascondiciones" value="#{solicitudobraController.selected.otrascondiciones}" title="#{bundle.CreateSolicitudobraTitle_otrascondiciones}" />
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{solicitudobraController.selected.observaciones}" title="#{bundle.CreateSolicitudobraTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_nombreadmcontrato}" for="nombreadmcontrato" />
+                    <h:inputText id="nombreadmcontrato" value="#{solicitudobraController.selected.nombreadmcontrato}" title="#{bundle.CreateSolicitudobraTitle_nombreadmcontrato}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_nombreadmcontrato}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_cargoadmincontrato}" for="cargoadmincontrato" />
+                    <h:inputText id="cargoadmincontrato" value="#{solicitudobraController.selected.cargoadmincontrato}" title="#{bundle.CreateSolicitudobraTitle_cargoadmincontrato}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_cargoadmincontrato}"/>
+                    <h:outputLabel value="#{bundle.CreateSolicitudobraLabel_dependenciaadmincontrato}" for="dependenciaadmincontrato" />
+                    <h:inputText id="dependenciaadmincontrato" value="#{solicitudobraController.selected.dependenciaadmincontrato}" title="#{bundle.CreateSolicitudobraTitle_dependenciaadmincontrato}" required="true" requiredMessage="#{bundle.CreateSolicitudobraRequiredMessage_dependenciaadmincontrato}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{solicitudobraController.create}" value="#{bundle.CreateSolicitudobraSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{solicitudobraController.prepareList}" value="#{bundle.CreateSolicitudobraShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSolicitudobraIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

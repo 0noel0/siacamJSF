@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOferenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h1>TITULO PROVEEDOR</h1>
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListOferenteEmpty}" rendered="#{oferenteController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{oferenteController.items.rowCount > 0}">
+                    <h:outputText value="#{oferenteController.pagination.pageFirstItem + 1}..#{oferenteController.pagination.pageLastItem + 1}/#{oferenteController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{oferenteController.previous}" value="#{bundle.Previous} #{oferenteController.pagination.pageSize}" rendered="#{oferenteController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{oferenteController.next}" value="#{bundle.Next} #{oferenteController.pagination.pageSize}" rendered="#{oferenteController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{oferenteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_nombreoferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreoferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_telefonooferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.telefonooferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_faxoferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.faxoferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_emailoferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailoferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_tiposervicio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tiposervicio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_calificacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.calificacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOferenteTitle_estadooferente}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estadooferente}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{oferenteController.prepareView}" value="#{bundle.ListOferenteViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{oferenteController.prepareEdit}" value="#{bundle.ListOferenteEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{oferenteController.destroy}" value="#{bundle.ListOferenteDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{oferenteController.prepareCreate}" value="#{bundle.ListOferenteCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListOferenteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

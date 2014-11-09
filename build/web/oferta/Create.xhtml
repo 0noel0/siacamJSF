@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateOfertaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_estadooferta}" for="estadooferta" />
+                    <h:inputText id="estadooferta" value="#{ofertaController.selected.estadooferta}" title="#{bundle.CreateOfertaTitle_estadooferta}" required="true" requiredMessage="#{bundle.CreateOfertaRequiredMessage_estadooferta}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_montooferta}" for="montooferta" />
+                    <h:inputText id="montooferta" value="#{ofertaController.selected.montooferta}" title="#{bundle.CreateOfertaTitle_montooferta}" required="true" requiredMessage="#{bundle.CreateOfertaRequiredMessage_montooferta}"/>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_oferente}" for="oferente" />
+                    <h:selectOneMenu id="oferente" value="#{ofertaController.selected.oferente}" title="#{bundle.CreateOfertaTitle_oferente}" required="true" requiredMessage="#{bundle.CreateOfertaRequiredMessage_oferente}">
+                        <f:selectItems value="#{oferenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateOfertaLabel_expedienteproceso}" for="expedienteproceso" />
+                    <h:selectOneMenu id="expedienteproceso" value="#{ofertaController.selected.expedienteproceso}" title="#{bundle.CreateOfertaTitle_expedienteproceso}" required="true" requiredMessage="#{bundle.CreateOfertaRequiredMessage_expedienteproceso}">
+                        <f:selectItems value="#{expedienteprocesoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ofertaController.create}" value="#{bundle.CreateOfertaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{ofertaController.prepareList}" value="#{bundle.CreateOfertaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateOfertaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

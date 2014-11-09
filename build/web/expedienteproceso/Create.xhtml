@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateExpedienteprocesoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateExpedienteprocesoLabel_codigoproceso}" for="codigoproceso" />
+                    <h:inputText id="codigoproceso" value="#{expedienteprocesoController.selected.codigoproceso}" title="#{bundle.CreateExpedienteprocesoTitle_codigoproceso}" required="true" requiredMessage="#{bundle.CreateExpedienteprocesoRequiredMessage_codigoproceso}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteprocesoLabel_denominacionproceso}" for="denominacionproceso" />
+                    <h:inputText id="denominacionproceso" value="#{expedienteprocesoController.selected.denominacionproceso}" title="#{bundle.CreateExpedienteprocesoTitle_denominacionproceso}" />
+                    <h:outputLabel value="#{bundle.CreateExpedienteprocesoLabel_responsableproceso}" for="responsableproceso" />
+                    <h:inputText id="responsableproceso" value="#{expedienteprocesoController.selected.responsableproceso}" title="#{bundle.CreateExpedienteprocesoTitle_responsableproceso}" required="true" requiredMessage="#{bundle.CreateExpedienteprocesoRequiredMessage_responsableproceso}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteprocesoLabel_tipoproceso}" for="tipoproceso" />
+                    <h:inputText id="tipoproceso" value="#{expedienteprocesoController.selected.tipoproceso}" title="#{bundle.CreateExpedienteprocesoTitle_tipoproceso}" required="true" requiredMessage="#{bundle.CreateExpedienteprocesoRequiredMessage_tipoproceso}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteprocesoLabel_estadoproceso}" for="estadoproceso" />
+                    <h:inputText id="estadoproceso" value="#{expedienteprocesoController.selected.estadoproceso}" title="#{bundle.CreateExpedienteprocesoTitle_estadoproceso}" required="true" requiredMessage="#{bundle.CreateExpedienteprocesoRequiredMessage_estadoproceso}"/>
+                    <h:outputLabel value="#{bundle.CreateExpedienteprocesoLabel_nombreadjudicatario}" for="nombreadjudicatario" />
+                    <h:selectOneMenu id="nombreadjudicatario" value="#{expedienteprocesoController.selected.nombreadjudicatario}" title="#{bundle.CreateExpedienteprocesoTitle_nombreadjudicatario}" >
+                        <f:selectItems value="#{oferenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{expedienteprocesoController.create}" value="#{bundle.CreateExpedienteprocesoSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{expedienteprocesoController.prepareList}" value="#{bundle.CreateExpedienteprocesoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateExpedienteprocesoIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

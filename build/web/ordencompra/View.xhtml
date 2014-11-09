@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrdencompraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_noorden}"/>
+                    <h:outputText value="#{ordencompraController.selected.noorden}" title="#{bundle.ViewOrdencompraTitle_noorden}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_fecha}"/>
+                    <h:outputText value="#{ordencompraController.selected.fecha}" title="#{bundle.ViewOrdencompraTitle_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_nombresuministrante}"/>
+                    <h:outputText value="#{ordencompraController.selected.nombresuministrante}" title="#{bundle.ViewOrdencompraTitle_nombresuministrante}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_nitsuministrante}"/>
+                    <h:outputText value="#{ordencompraController.selected.nitsuministrante}" title="#{bundle.ViewOrdencompraTitle_nitsuministrante}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_direccionsuministrante}"/>
+                    <h:outputText value="#{ordencompraController.selected.direccionsuministrante}" title="#{bundle.ViewOrdencompraTitle_direccionsuministrante}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_montototal}"/>
+                    <h:outputText value="#{ordencompraController.selected.montototal}" title="#{bundle.ViewOrdencompraTitle_montototal}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_totalletras}"/>
+                    <h:outputText value="#{ordencompraController.selected.totalletras}" title="#{bundle.ViewOrdencompraTitle_totalletras}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_observaciones}"/>
+                    <h:outputText value="#{ordencompraController.selected.observaciones}" title="#{bundle.ViewOrdencompraTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_lugarentrega}"/>
+                    <h:outputText value="#{ordencompraController.selected.lugarentrega}" title="#{bundle.ViewOrdencompraTitle_lugarentrega}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_fechaentrega}"/>
+                    <h:outputText value="#{ordencompraController.selected.fechaentrega}" title="#{bundle.ViewOrdencompraTitle_fechaentrega}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_nombreadminorden}"/>
+                    <h:outputText value="#{ordencompraController.selected.nombreadminorden}" title="#{bundle.ViewOrdencompraTitle_nombreadminorden}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_teladminorden}"/>
+                    <h:outputText value="#{ordencompraController.selected.teladminorden}" title="#{bundle.ViewOrdencompraTitle_teladminorden}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_emailadminorden}"/>
+                    <h:outputText value="#{ordencompraController.selected.emailadminorden}" title="#{bundle.ViewOrdencompraTitle_emailadminorden}"/>
+                    <h:outputText value="#{bundle.ViewOrdencompraLabel_codigoinstitucion}"/>
+                    <h:outputText value="#{ordencompraController.selected.codigoinstitucion}" title="#{bundle.ViewOrdencompraTitle_codigoinstitucion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ordencompraController.destroyAndView}" value="#{bundle.ViewOrdencompraDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOrdencompraEditLink}"/>
+                <br />
+                <h:commandLink action="#{ordencompraController.prepareCreate}" value="#{bundle.ViewOrdencompraCreateLink}" />
+                <br />
+                <h:commandLink action="#{ordencompraController.prepareList}" value="#{bundle.ViewOrdencompraShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOrdencompraIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOferenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_nombreoferente}" for="nombreoferente" />
+                    <h:inputText id="nombreoferente" value="#{oferenteController.selected.nombreoferente}" title="#{bundle.EditOferenteTitle_nombreoferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_nombreoferente}"/>
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_telefonooferente}" for="telefonooferente" />
+                    <h:inputText id="telefonooferente" value="#{oferenteController.selected.telefonooferente}" title="#{bundle.EditOferenteTitle_telefonooferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_telefonooferente}"/>
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_faxoferente}" for="faxoferente" />
+                    <h:inputText id="faxoferente" value="#{oferenteController.selected.faxoferente}" title="#{bundle.EditOferenteTitle_faxoferente}" />
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_emailoferente}" for="emailoferente" />
+                    <h:inputText id="emailoferente" value="#{oferenteController.selected.emailoferente}" title="#{bundle.EditOferenteTitle_emailoferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_emailoferente}"/>
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_tiposervicio}" for="tiposervicio" />
+                    <h:inputText id="tiposervicio" value="#{oferenteController.selected.tiposervicio}" title="#{bundle.EditOferenteTitle_tiposervicio}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_tiposervicio}"/>
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_calificacion}" for="calificacion" />
+                    <h:inputText id="calificacion" value="#{oferenteController.selected.calificacion}" title="#{bundle.EditOferenteTitle_calificacion}" />
+                    <h:outputLabel value="#{bundle.EditOferenteLabel_estadooferente}" for="estadooferente" />
+                    <h:inputText id="estadooferente" value="#{oferenteController.selected.estadooferente}" title="#{bundle.EditOferenteTitle_estadooferente}" required="true" requiredMessage="#{bundle.EditOferenteRequiredMessage_estadooferente}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{oferenteController.update}" value="#{bundle.EditOferenteSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOferenteViewLink}"/>
+                <br />
+                <h:commandLink action="#{oferenteController.prepareList}" value="#{bundle.EditOferenteShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOferenteIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

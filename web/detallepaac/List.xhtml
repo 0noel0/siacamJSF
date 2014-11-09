@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListDetallepaacTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListDetallepaacEmpty}" rendered="#{detallepaacController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{detallepaacController.items.rowCount > 0}">
+                    <h:outputText value="#{detallepaacController.pagination.pageFirstItem + 1}..#{detallepaacController.pagination.pageLastItem + 1}/#{detallepaacController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{detallepaacController.previous}" value="#{bundle.Previous} #{detallepaacController.pagination.pageSize}" rendered="#{detallepaacController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{detallepaacController.next}" value="#{bundle.Next} #{detallepaacController.pagination.pageSize}" rendered="#{detallepaacController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{detallepaacController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_detallepaacPK_nocorrelativo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.detallepaacPK.nocorrelativo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_fuenterecurso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fuenterecurso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_formacontratacion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.formacontratacion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_nombreprelimproceso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreprelimproceso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_descripcionunspsc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcionunspsc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_codigoobjetopres}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoobjetopres}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_mesestimado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.mesestimado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_montopresupuestado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montopresupuestado}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_codigounspsc}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigounspsc}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListDetallepaacTitle_paac}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.paac}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{detallepaacController.prepareView}" value="#{bundle.ListDetallepaacViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallepaacController.prepareEdit}" value="#{bundle.ListDetallepaacEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{detallepaacController.destroy}" value="#{bundle.ListDetallepaacDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{detallepaacController.prepareCreate}" value="#{bundle.ListDetallepaacCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListDetallepaacIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

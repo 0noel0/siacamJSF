@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOferenteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOferenteLabel_nombreoferente}"/>
+                    <h:outputText value="#{oferenteController.selected.nombreoferente}" title="#{bundle.ViewOferenteTitle_nombreoferente}"/>
+                    <h:outputText value="#{bundle.ViewOferenteLabel_telefonooferente}"/>
+                    <h:outputText value="#{oferenteController.selected.telefonooferente}" title="#{bundle.ViewOferenteTitle_telefonooferente}"/>
+                    <h:outputText value="#{bundle.ViewOferenteLabel_faxoferente}"/>
+                    <h:outputText value="#{oferenteController.selected.faxoferente}" title="#{bundle.ViewOferenteTitle_faxoferente}"/>
+                    <h:outputText value="#{bundle.ViewOferenteLabel_emailoferente}"/>
+                    <h:outputText value="#{oferenteController.selected.emailoferente}" title="#{bundle.ViewOferenteTitle_emailoferente}"/>
+                    <h:outputText value="#{bundle.ViewOferenteLabel_tiposervicio}"/>
+                    <h:outputText value="#{oferenteController.selected.tiposervicio}" title="#{bundle.ViewOferenteTitle_tiposervicio}"/>
+                    <h:outputText value="#{bundle.ViewOferenteLabel_calificacion}"/>
+                    <h:outputText value="#{oferenteController.selected.calificacion}" title="#{bundle.ViewOferenteTitle_calificacion}"/>
+                    <h:outputText value="#{bundle.ViewOferenteLabel_estadooferente}"/>
+                    <h:outputText value="#{oferenteController.selected.estadooferente}" title="#{bundle.ViewOferenteTitle_estadooferente}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{oferenteController.destroyAndView}" value="#{bundle.ViewOferenteDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOferenteEditLink}"/>
+                <br />
+                <h:commandLink action="#{oferenteController.prepareCreate}" value="#{bundle.ViewOferenteCreateLink}" />
+                <br />
+                <h:commandLink action="#{oferenteController.prepareList}" value="#{bundle.ViewOferenteShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOferenteIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

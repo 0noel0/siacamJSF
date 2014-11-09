@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetalleficharetirobasesTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_detalleficharetirobasesPK_nocorrelativo}" for="detalleficharetirobasesPK_nocorrelativo" />
+                    <h:inputText id="detalleficharetirobasesPK_nocorrelativo" value="#{detalleficharetirobasesController.selected.detalleficharetirobasesPK.nocorrelativo}" title="#{bundle.CreateDetalleficharetirobasesTitle_detalleficharetirobasesPK_nocorrelativo}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_detalleficharetirobasesPK_nocorrelativo}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_nombrecomisionado}" for="nombrecomisionado" />
+                    <h:inputText id="nombrecomisionado" value="#{detalleficharetirobasesController.selected.nombrecomisionado}" title="#{bundle.CreateDetalleficharetirobasesTitle_nombrecomisionado}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_nombrecomisionado}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_documentoidcomisionado}" for="documentoidcomisionado" />
+                    <h:inputText id="documentoidcomisionado" value="#{detalleficharetirobasesController.selected.documentoidcomisionado}" title="#{bundle.CreateDetalleficharetirobasesTitle_documentoidcomisionado}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_documentoidcomisionado}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_lugarparanotificaciones}" for="lugarparanotificaciones" />
+                    <h:inputText id="lugarparanotificaciones" value="#{detalleficharetirobasesController.selected.lugarparanotificaciones}" title="#{bundle.CreateDetalleficharetirobasesTitle_lugarparanotificaciones}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_lugarparanotificaciones}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_fecharetirobases}" for="fecharetirobases" />
+                    <h:inputText id="fecharetirobases" value="#{detalleficharetirobasesController.selected.fecharetirobases}" title="#{bundle.CreateDetalleficharetirobasesTitle_fecharetirobases}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_fecharetirobases}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_horaretirobases}" for="horaretirobases" />
+                    <h:inputText id="horaretirobases" value="#{detalleficharetirobasesController.selected.horaretirobases}" title="#{bundle.CreateDetalleficharetirobasesTitle_horaretirobases}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_horaretirobases}">
+                        <f:convertDateTime pattern="HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_nombreoferente}" for="nombreoferente" />
+                    <h:selectOneMenu id="nombreoferente" value="#{detalleficharetirobasesController.selected.nombreoferente}" title="#{bundle.CreateDetalleficharetirobasesTitle_nombreoferente}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_nombreoferente}">
+                        <f:selectItems value="#{oferenteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetalleficharetirobasesLabel_expedienteproceso}" for="expedienteproceso" />
+                    <h:selectOneMenu id="expedienteproceso" value="#{detalleficharetirobasesController.selected.expedienteproceso}" title="#{bundle.CreateDetalleficharetirobasesTitle_expedienteproceso}" required="true" requiredMessage="#{bundle.CreateDetalleficharetirobasesRequiredMessage_expedienteproceso}">
+                        <f:selectItems value="#{expedienteprocesoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detalleficharetirobasesController.create}" value="#{bundle.CreateDetalleficharetirobasesSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detalleficharetirobasesController.prepareList}" value="#{bundle.CreateDetalleficharetirobasesShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetalleficharetirobasesIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewDetalleofertaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewDetalleofertaLabel_detalleofertaPK_rubro}"/>
+                    <h:outputText value="#{detalleofertaController.selected.detalleofertaPK.rubro}" title="#{bundle.ViewDetalleofertaTitle_detalleofertaPK_rubro}"/>
+                    <h:outputText value="#{bundle.ViewDetalleofertaLabel_marcaofertada}"/>
+                    <h:outputText value="#{detalleofertaController.selected.marcaofertada}" title="#{bundle.ViewDetalleofertaTitle_marcaofertada}"/>
+                    <h:outputText value="#{bundle.ViewDetalleofertaLabel_preciounitario}"/>
+                    <h:outputText value="#{detalleofertaController.selected.preciounitario}" title="#{bundle.ViewDetalleofertaTitle_preciounitario}"/>
+                    <h:outputText value="#{bundle.ViewDetalleofertaLabel_total}"/>
+                    <h:outputText value="#{detalleofertaController.selected.total}" title="#{bundle.ViewDetalleofertaTitle_total}"/>
+                    <h:outputText value="#{bundle.ViewDetalleofertaLabel_montogarantia}"/>
+                    <h:outputText value="#{detalleofertaController.selected.montogarantia}" title="#{bundle.ViewDetalleofertaTitle_montogarantia}"/>
+                    <h:outputText value="#{bundle.ViewDetalleofertaLabel_oferta}"/>
+                    <h:outputText value="#{detalleofertaController.selected.oferta}" title="#{bundle.ViewDetalleofertaTitle_oferta}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detalleofertaController.destroyAndView}" value="#{bundle.ViewDetalleofertaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewDetalleofertaEditLink}"/>
+                <br />
+                <h:commandLink action="#{detalleofertaController.prepareCreate}" value="#{bundle.ViewDetalleofertaCreateLink}" />
+                <br />
+                <h:commandLink action="#{detalleofertaController.prepareList}" value="#{bundle.ViewDetalleofertaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewDetalleofertaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

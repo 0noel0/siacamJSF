@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAdendaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAdendaLabel_adendaPK_nocorrelativo}"/>
+                    <h:outputText value="#{adendaController.selected.adendaPK.nocorrelativo}" title="#{bundle.ViewAdendaTitle_adendaPK_nocorrelativo}"/>
+                    <h:outputText value="#{bundle.ViewAdendaLabel_textobases}"/>
+                    <h:outputText value="#{adendaController.selected.textobases}" title="#{bundle.ViewAdendaTitle_textobases}"/>
+                    <h:outputText value="#{bundle.ViewAdendaLabel_operacion}"/>
+                    <h:outputText value="#{adendaController.selected.operacion}" title="#{bundle.ViewAdendaTitle_operacion}"/>
+                    <h:outputText value="#{bundle.ViewAdendaLabel_expedienteproceso}"/>
+                    <h:outputText value="#{adendaController.selected.expedienteproceso}" title="#{bundle.ViewAdendaTitle_expedienteproceso}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{adendaController.destroyAndView}" value="#{bundle.ViewAdendaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAdendaEditLink}"/>
+                <br />
+                <h:commandLink action="#{adendaController.prepareCreate}" value="#{bundle.ViewAdendaCreateLink}" />
+                <br />
+                <h:commandLink action="#{adendaController.prepareList}" value="#{bundle.ViewAdendaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAdendaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

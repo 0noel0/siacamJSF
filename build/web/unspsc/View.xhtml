@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUnspscTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewUnspscLabel_codigo}"/>
+                    <h:outputText value="#{unspscController.selected.codigo}" title="#{bundle.ViewUnspscTitle_codigo}"/>
+                    <h:outputText value="#{bundle.ViewUnspscLabel_descripcion}"/>
+                    <h:outputText value="#{unspscController.selected.descripcion}" title="#{bundle.ViewUnspscTitle_descripcion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{unspscController.destroyAndView}" value="#{bundle.ViewUnspscDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewUnspscEditLink}"/>
+                <br />
+                <h:commandLink action="#{unspscController.prepareCreate}" value="#{bundle.ViewUnspscCreateLink}" />
+                <br />
+                <h:commandLink action="#{unspscController.prepareList}" value="#{bundle.ViewUnspscShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewUnspscIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

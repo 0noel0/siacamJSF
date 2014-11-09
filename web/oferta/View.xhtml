@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOfertaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOfertaLabel_estadooferta}"/>
+                    <h:outputText value="#{ofertaController.selected.estadooferta}" title="#{bundle.ViewOfertaTitle_estadooferta}"/>
+                    <h:outputText value="#{bundle.ViewOfertaLabel_montooferta}"/>
+                    <h:outputText value="#{ofertaController.selected.montooferta}" title="#{bundle.ViewOfertaTitle_montooferta}"/>
+                    <h:outputText value="#{bundle.ViewOfertaLabel_oferente}"/>
+                    <h:outputText value="#{ofertaController.selected.oferente}" title="#{bundle.ViewOfertaTitle_oferente}"/>
+                    <h:outputText value="#{bundle.ViewOfertaLabel_expedienteproceso}"/>
+                    <h:outputText value="#{ofertaController.selected.expedienteproceso}" title="#{bundle.ViewOfertaTitle_expedienteproceso}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{ofertaController.destroyAndView}" value="#{bundle.ViewOfertaDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOfertaEditLink}"/>
+                <br />
+                <h:commandLink action="#{ofertaController.prepareCreate}" value="#{bundle.ViewOfertaCreateLink}" />
+                <br />
+                <h:commandLink action="#{ofertaController.prepareList}" value="#{bundle.ViewOfertaShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOfertaIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

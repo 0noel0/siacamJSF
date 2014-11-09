@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSolicitudobraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_solicitudobraPK_fecha}"/>
+                    <h:outputText value="#{solicitudobraController.selected.solicitudobraPK.fecha}" title="#{bundle.ViewSolicitudobraTitle_solicitudobraPK_fecha}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_solicitudobraPK_nombresolicitante}"/>
+                    <h:outputText value="#{solicitudobraController.selected.solicitudobraPK.nombresolicitante}" title="#{bundle.ViewSolicitudobraTitle_solicitudobraPK_nombresolicitante}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_cargosolicitante}"/>
+                    <h:outputText value="#{solicitudobraController.selected.cargosolicitante}" title="#{bundle.ViewSolicitudobraTitle_cargosolicitante}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_dependenciasolicitante}"/>
+                    <h:outputText value="#{solicitudobraController.selected.dependenciasolicitante}" title="#{bundle.ViewSolicitudobraTitle_dependenciasolicitante}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_nombreautorizante}"/>
+                    <h:outputText value="#{solicitudobraController.selected.nombreautorizante}" title="#{bundle.ViewSolicitudobraTitle_nombreautorizante}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_cargoautorizante}"/>
+                    <h:outputText value="#{solicitudobraController.selected.cargoautorizante}" title="#{bundle.ViewSolicitudobraTitle_cargoautorizante}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_dependenciaautorizante}"/>
+                    <h:outputText value="#{solicitudobraController.selected.dependenciaautorizante}" title="#{bundle.ViewSolicitudobraTitle_dependenciaautorizante}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_justificacion}"/>
+                    <h:outputText value="#{solicitudobraController.selected.justificacion}" title="#{bundle.ViewSolicitudobraTitle_justificacion}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_valorestimado}"/>
+                    <h:outputText value="#{solicitudobraController.selected.valorestimado}" title="#{bundle.ViewSolicitudobraTitle_valorestimado}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_formaentrega}"/>
+                    <h:outputText value="#{solicitudobraController.selected.formaentrega}" title="#{bundle.ViewSolicitudobraTitle_formaentrega}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_lugarentrega}"/>
+                    <h:outputText value="#{solicitudobraController.selected.lugarentrega}" title="#{bundle.ViewSolicitudobraTitle_lugarentrega}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_otrascondiciones}"/>
+                    <h:outputText value="#{solicitudobraController.selected.otrascondiciones}" title="#{bundle.ViewSolicitudobraTitle_otrascondiciones}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_observaciones}"/>
+                    <h:outputText value="#{solicitudobraController.selected.observaciones}" title="#{bundle.ViewSolicitudobraTitle_observaciones}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_nombreadmcontrato}"/>
+                    <h:outputText value="#{solicitudobraController.selected.nombreadmcontrato}" title="#{bundle.ViewSolicitudobraTitle_nombreadmcontrato}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_cargoadmincontrato}"/>
+                    <h:outputText value="#{solicitudobraController.selected.cargoadmincontrato}" title="#{bundle.ViewSolicitudobraTitle_cargoadmincontrato}"/>
+                    <h:outputText value="#{bundle.ViewSolicitudobraLabel_dependenciaadmincontrato}"/>
+                    <h:outputText value="#{solicitudobraController.selected.dependenciaadmincontrato}" title="#{bundle.ViewSolicitudobraTitle_dependenciaadmincontrato}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{solicitudobraController.destroyAndView}" value="#{bundle.ViewSolicitudobraDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSolicitudobraEditLink}"/>
+                <br />
+                <h:commandLink action="#{solicitudobraController.prepareCreate}" value="#{bundle.ViewSolicitudobraCreateLink}" />
+                <br />
+                <h:commandLink action="#{solicitudobraController.prepareList}" value="#{bundle.ViewSolicitudobraShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSolicitudobraIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

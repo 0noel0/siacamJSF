@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewExpedienteprocesoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewExpedienteprocesoLabel_codigoproceso}"/>
+                    <h:outputText value="#{expedienteprocesoController.selected.codigoproceso}" title="#{bundle.ViewExpedienteprocesoTitle_codigoproceso}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteprocesoLabel_denominacionproceso}"/>
+                    <h:outputText value="#{expedienteprocesoController.selected.denominacionproceso}" title="#{bundle.ViewExpedienteprocesoTitle_denominacionproceso}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteprocesoLabel_responsableproceso}"/>
+                    <h:outputText value="#{expedienteprocesoController.selected.responsableproceso}" title="#{bundle.ViewExpedienteprocesoTitle_responsableproceso}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteprocesoLabel_tipoproceso}"/>
+                    <h:outputText value="#{expedienteprocesoController.selected.tipoproceso}" title="#{bundle.ViewExpedienteprocesoTitle_tipoproceso}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteprocesoLabel_estadoproceso}"/>
+                    <h:outputText value="#{expedienteprocesoController.selected.estadoproceso}" title="#{bundle.ViewExpedienteprocesoTitle_estadoproceso}"/>
+                    <h:outputText value="#{bundle.ViewExpedienteprocesoLabel_nombreadjudicatario}"/>
+                    <h:outputText value="#{expedienteprocesoController.selected.nombreadjudicatario}" title="#{bundle.ViewExpedienteprocesoTitle_nombreadjudicatario}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{expedienteprocesoController.destroyAndView}" value="#{bundle.ViewExpedienteprocesoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewExpedienteprocesoEditLink}"/>
+                <br />
+                <h:commandLink action="#{expedienteprocesoController.prepareCreate}" value="#{bundle.ViewExpedienteprocesoCreateLink}" />
+                <br />
+                <h:commandLink action="#{expedienteprocesoController.prepareList}" value="#{bundle.ViewExpedienteprocesoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewExpedienteprocesoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

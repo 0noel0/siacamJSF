@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOrdencompraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListOrdencompraEmpty}" rendered="#{ordencompraController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{ordencompraController.items.rowCount > 0}">
+                    <h:outputText value="#{ordencompraController.pagination.pageFirstItem + 1}..#{ordencompraController.pagination.pageLastItem + 1}/#{ordencompraController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{ordencompraController.previous}" value="#{bundle.Previous} #{ordencompraController.pagination.pageSize}" rendered="#{ordencompraController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{ordencompraController.next}" value="#{bundle.Next} #{ordencompraController.pagination.pageSize}" rendered="#{ordencompraController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{ordencompraController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_noorden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noorden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_fecha}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fecha}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_nombresuministrante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombresuministrante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_nitsuministrante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nitsuministrante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_direccionsuministrante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionsuministrante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_montototal}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.montototal}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_totalletras}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.totalletras}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_lugarentrega}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.lugarentrega}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_fechaentrega}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaentrega}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_nombreadminorden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombreadminorden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_teladminorden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.teladminorden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_emailadminorden}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.emailadminorden}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOrdencompraTitle_codigoinstitucion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoinstitucion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{ordencompraController.prepareView}" value="#{bundle.ListOrdencompraViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ordencompraController.prepareEdit}" value="#{bundle.ListOrdencompraEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{ordencompraController.destroy}" value="#{bundle.ListOrdencompraDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{ordencompraController.prepareCreate}" value="#{bundle.ListOrdencompraCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListOrdencompraIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

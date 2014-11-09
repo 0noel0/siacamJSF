@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPaacTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewPaacLabel_ejerciciofiscal}"/>
+                    <h:outputText value="#{paacController.selected.ejerciciofiscal}" title="#{bundle.ViewPaacTitle_ejerciciofiscal}"/>
+                    <h:outputText value="#{bundle.ViewPaacLabel_nombreinstitucion}"/>
+                    <h:outputText value="#{paacController.selected.nombreinstitucion}" title="#{bundle.ViewPaacTitle_nombreinstitucion}"/>
+                    <h:outputText value="#{bundle.ViewPaacLabel_fechaelaboracion}"/>
+                    <h:outputText value="#{paacController.selected.fechaelaboracion}" title="#{bundle.ViewPaacTitle_fechaelaboracion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewPaacLabel_version}"/>
+                    <h:outputText value="#{paacController.selected.version}" title="#{bundle.ViewPaacTitle_version}"/>
+                    <h:outputText value="#{bundle.ViewPaacLabel_correlativomodificacion}"/>
+                    <h:outputText value="#{paacController.selected.correlativomodificacion}" title="#{bundle.ViewPaacTitle_correlativomodificacion}"/>
+                    <h:outputText value="#{bundle.ViewPaacLabel_codigoinstitucion}"/>
+                    <h:outputText value="#{paacController.selected.codigoinstitucion}" title="#{bundle.ViewPaacTitle_codigoinstitucion}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{paacController.destroyAndView}" value="#{bundle.ViewPaacDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewPaacEditLink}"/>
+                <br />
+                <h:commandLink action="#{paacController.prepareCreate}" value="#{bundle.ViewPaacCreateLink}" />
+                <br />
+                <h:commandLink action="#{paacController.prepareList}" value="#{bundle.ViewPaacShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewPaacIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

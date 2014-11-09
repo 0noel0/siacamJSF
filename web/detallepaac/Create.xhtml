@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetallepaacTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_detallepaacPK_nocorrelativo}" for="detallepaacPK_nocorrelativo" />
+                    <h:inputText id="detallepaacPK_nocorrelativo" value="#{detallepaacController.selected.detallepaacPK.nocorrelativo}" title="#{bundle.CreateDetallepaacTitle_detallepaacPK_nocorrelativo}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_detallepaacPK_nocorrelativo}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_fuenterecurso}" for="fuenterecurso" />
+                    <h:inputText id="fuenterecurso" value="#{detallepaacController.selected.fuenterecurso}" title="#{bundle.CreateDetallepaacTitle_fuenterecurso}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_fuenterecurso}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_formacontratacion}" for="formacontratacion" />
+                    <h:inputText id="formacontratacion" value="#{detallepaacController.selected.formacontratacion}" title="#{bundle.CreateDetallepaacTitle_formacontratacion}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_formacontratacion}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_nombreprelimproceso}" for="nombreprelimproceso" />
+                    <h:inputText id="nombreprelimproceso" value="#{detallepaacController.selected.nombreprelimproceso}" title="#{bundle.CreateDetallepaacTitle_nombreprelimproceso}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_nombreprelimproceso}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_descripcionunspsc}" for="descripcionunspsc" />
+                    <h:inputText id="descripcionunspsc" value="#{detallepaacController.selected.descripcionunspsc}" title="#{bundle.CreateDetallepaacTitle_descripcionunspsc}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_descripcionunspsc}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_codigoobjetopres}" for="codigoobjetopres" />
+                    <h:inputText id="codigoobjetopres" value="#{detallepaacController.selected.codigoobjetopres}" title="#{bundle.CreateDetallepaacTitle_codigoobjetopres}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_codigoobjetopres}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_mesestimado}" for="mesestimado" />
+                    <h:inputText id="mesestimado" value="#{detallepaacController.selected.mesestimado}" title="#{bundle.CreateDetallepaacTitle_mesestimado}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_mesestimado}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_montopresupuestado}" for="montopresupuestado" />
+                    <h:inputText id="montopresupuestado" value="#{detallepaacController.selected.montopresupuestado}" title="#{bundle.CreateDetallepaacTitle_montopresupuestado}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_montopresupuestado}"/>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_codigounspsc}" for="codigounspsc" />
+                    <h:selectOneMenu id="codigounspsc" value="#{detallepaacController.selected.codigounspsc}" title="#{bundle.CreateDetallepaacTitle_codigounspsc}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_codigounspsc}">
+                        <f:selectItems value="#{unspscController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDetallepaacLabel_paac}" for="paac" />
+                    <h:selectOneMenu id="paac" value="#{detallepaacController.selected.paac}" title="#{bundle.CreateDetallepaacTitle_paac}" required="true" requiredMessage="#{bundle.CreateDetallepaacRequiredMessage_paac}">
+                        <f:selectItems value="#{paacController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detallepaacController.create}" value="#{bundle.CreateDetallepaacSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detallepaacController.prepareList}" value="#{bundle.CreateDetallepaacShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetallepaacIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

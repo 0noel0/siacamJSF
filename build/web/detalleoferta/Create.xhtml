@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateDetalleofertaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDetalleofertaLabel_detalleofertaPK_rubro}" for="detalleofertaPK_rubro" />
+                    <h:inputText id="detalleofertaPK_rubro" value="#{detalleofertaController.selected.detalleofertaPK.rubro}" title="#{bundle.CreateDetalleofertaTitle_detalleofertaPK_rubro}" required="true" requiredMessage="#{bundle.CreateDetalleofertaRequiredMessage_detalleofertaPK_rubro}"/>
+                    <h:outputLabel value="#{bundle.CreateDetalleofertaLabel_marcaofertada}" for="marcaofertada" />
+                    <h:inputText id="marcaofertada" value="#{detalleofertaController.selected.marcaofertada}" title="#{bundle.CreateDetalleofertaTitle_marcaofertada}" />
+                    <h:outputLabel value="#{bundle.CreateDetalleofertaLabel_preciounitario}" for="preciounitario" />
+                    <h:inputText id="preciounitario" value="#{detalleofertaController.selected.preciounitario}" title="#{bundle.CreateDetalleofertaTitle_preciounitario}" />
+                    <h:outputLabel value="#{bundle.CreateDetalleofertaLabel_total}" for="total" />
+                    <h:inputText id="total" value="#{detalleofertaController.selected.total}" title="#{bundle.CreateDetalleofertaTitle_total}" />
+                    <h:outputLabel value="#{bundle.CreateDetalleofertaLabel_montogarantia}" for="montogarantia" />
+                    <h:inputText id="montogarantia" value="#{detalleofertaController.selected.montogarantia}" title="#{bundle.CreateDetalleofertaTitle_montogarantia}" />
+                    <h:outputLabel value="#{bundle.CreateDetalleofertaLabel_oferta}" for="oferta" />
+                    <h:selectOneMenu id="oferta" value="#{detalleofertaController.selected.oferta}" title="#{bundle.CreateDetalleofertaTitle_oferta}" required="true" requiredMessage="#{bundle.CreateDetalleofertaRequiredMessage_oferta}">
+                        <f:selectItems value="#{ofertaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{detalleofertaController.create}" value="#{bundle.CreateDetalleofertaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{detalleofertaController.prepareList}" value="#{bundle.CreateDetalleofertaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateDetalleofertaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

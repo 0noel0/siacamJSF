@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditAdendaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditAdendaLabel_adendaPK_nocorrelativo}" for="adendaPK_nocorrelativo" />
+                    <h:inputText id="adendaPK_nocorrelativo" value="#{adendaController.selected.adendaPK.nocorrelativo}" title="#{bundle.EditAdendaTitle_adendaPK_nocorrelativo}" required="true" requiredMessage="#{bundle.EditAdendaRequiredMessage_adendaPK_nocorrelativo}"/>
+                    <h:outputLabel value="#{bundle.EditAdendaLabel_textobases}" for="textobases" />
+                    <h:inputText id="textobases" value="#{adendaController.selected.textobases}" title="#{bundle.EditAdendaTitle_textobases}" />
+                    <h:outputLabel value="#{bundle.EditAdendaLabel_operacion}" for="operacion" />
+                    <h:inputText id="operacion" value="#{adendaController.selected.operacion}" title="#{bundle.EditAdendaTitle_operacion}" />
+                    <h:outputLabel value="#{bundle.EditAdendaLabel_expedienteproceso}" for="expedienteproceso" />
+                    <h:selectOneMenu id="expedienteproceso" value="#{adendaController.selected.expedienteproceso}" title="#{bundle.EditAdendaTitle_expedienteproceso}" required="true" requiredMessage="#{bundle.EditAdendaRequiredMessage_expedienteproceso}">
+                        <f:selectItems value="#{expedienteprocesoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{adendaController.update}" value="#{bundle.EditAdendaSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditAdendaViewLink}"/>
+                <br />
+                <h:commandLink action="#{adendaController.prepareList}" value="#{bundle.EditAdendaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditAdendaIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

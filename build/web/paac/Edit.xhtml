@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPaacTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPaacLabel_ejerciciofiscal}" for="ejerciciofiscal" />
+                    <h:inputText id="ejerciciofiscal" value="#{paacController.selected.ejerciciofiscal}" title="#{bundle.EditPaacTitle_ejerciciofiscal}" required="true" requiredMessage="#{bundle.EditPaacRequiredMessage_ejerciciofiscal}"/>
+                    <h:outputLabel value="#{bundle.EditPaacLabel_nombreinstitucion}" for="nombreinstitucion" />
+                    <h:inputText id="nombreinstitucion" value="#{paacController.selected.nombreinstitucion}" title="#{bundle.EditPaacTitle_nombreinstitucion}" required="true" requiredMessage="#{bundle.EditPaacRequiredMessage_nombreinstitucion}"/>
+                    <h:outputLabel value="#{bundle.EditPaacLabel_fechaelaboracion}" for="fechaelaboracion" />
+                    <h:inputText id="fechaelaboracion" value="#{paacController.selected.fechaelaboracion}" title="#{bundle.EditPaacTitle_fechaelaboracion}" required="true" requiredMessage="#{bundle.EditPaacRequiredMessage_fechaelaboracion}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditPaacLabel_version}" for="version" />
+                    <h:inputText id="version" value="#{paacController.selected.version}" title="#{bundle.EditPaacTitle_version}" required="true" requiredMessage="#{bundle.EditPaacRequiredMessage_version}"/>
+                    <h:outputLabel value="#{bundle.EditPaacLabel_correlativomodificacion}" for="correlativomodificacion" />
+                    <h:inputText id="correlativomodificacion" value="#{paacController.selected.correlativomodificacion}" title="#{bundle.EditPaacTitle_correlativomodificacion}" />
+                    <h:outputLabel value="#{bundle.EditPaacLabel_codigoinstitucion}" for="codigoinstitucion" />
+                    <h:selectOneMenu id="codigoinstitucion" value="#{paacController.selected.codigoinstitucion}" title="#{bundle.EditPaacTitle_codigoinstitucion}" required="true" requiredMessage="#{bundle.EditPaacRequiredMessage_codigoinstitucion}">
+                        <f:selectItems value="#{datosinstitucionalesController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{paacController.update}" value="#{bundle.EditPaacSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPaacViewLink}"/>
+                <br />
+                <h:commandLink action="#{paacController.prepareList}" value="#{bundle.EditPaacShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPaacIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
